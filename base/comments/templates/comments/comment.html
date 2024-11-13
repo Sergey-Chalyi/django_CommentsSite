@@ -1,6 +1,25 @@
 <div class="comment" style="margin-left: {{ level|default:0 }}px;">
     <p><strong>{{ comment.user_name }}</strong> <span class="meta">— {{ comment.pk }} (ID) — {{ comment.time_created }}</span></p>
-    <p>{{ comment.text }}</p>
+    <p>{{ comment.text|safe }}</p>
+
+    {% if comment.attachment %}
+        <div class="attachment">
+            {% if comment.attachment.name|lower|slice:"-4:" == '.txt' %}
+                <!-- Для текстового файла покажем ссылку для скачивания -->
+                <p class="attachment-text">
+                    Прикрепленный файл:
+                    <a href="{{ comment.attachment.url }}" download>
+                        {{ comment.attachment.name|slice:"9:" }}
+                    </a>
+                </p>
+            {% else %}
+                <!-- Для изображения покажем превью -->
+                <div class="attachment-image">
+                    <img src="{{ comment.attachment.url }}" alt="Прикрепленное изображение">
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
 
     {% for reply in comment.get_replies %}
         <div class="comment-reply">

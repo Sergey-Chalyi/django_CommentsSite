@@ -11,7 +11,7 @@
 <h2>Добавить комментарий</h2>
 
 <div class="add-comment-container">
-    <form method="post" action="{% url 'comments_create' %}">
+    <form method="post" action="{% url 'comments_create' %}" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Отправить</button>
