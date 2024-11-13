@@ -13,7 +13,7 @@ def validate_text_file(value):
     if ext != 'txt':
         raise ValidationError('Разрешены только текстовые файлы формата .txt')
 
-    if value.size > 102400:  # 100KB в байтах
+    if value.size > 102400:  # 100KB
         raise ValidationError("Максимальный размер текстового файла не может превышать 100KB")
 
 
@@ -23,28 +23,27 @@ def validate_image_file(value):
         raise ValidationError('Разрешены только изображения форматов JPG, PNG, GIF')
 
 def clean_html(content):
-    # Разрешаем только указанные теги
     allowed_tags = ['a', 'code', 'i', 'strong']
     allowed_attrs = {
-        'a': ['href', 'title'],  # Разрешаем только href и title для тега <a>
+        'a': ['href', 'title'],
     }
 
-    # Очищаем HTML-код, оставляя только разрешенные теги
+    # clear HTML from unalowwed tags
     cleaned_content = bleach.clean(content, tags=allowed_tags, attributes=allowed_attrs)
 
-    # Проверка на закрытие тегов и корректность XHTML
+    # check tags for closing
     try:
-        # Парсим HTML с использованием lxml для проверки его корректности
+        # parse
         tree = etree.fromstring(cleaned_content, parser=etree.XMLParser(recover=True))
-        return cleaned_content  # Если HTML валиден, возвращаем очищенный контент
+        return cleaned_content
     except etree.XMLSyntaxError as e:
-        raise ValidationError(f"Неверный HTML: {str(e)}")  # Если ошибка, выводим ошибку
+        raise ValidationError(f"Неверный HTML: {str(e)}")
 
 
 class Comment(models.Model):
     user_name = models.CharField(max_length=255, null=False, blank=False)
     email = models.EmailField(validators=[EmailValidator()], null=False)
-    text = models.TextField(null=False)  # Поле для хранения очищенного текста
+    text = models.TextField(null=False)
 
     attachment = models.FileField(
         null=True,
@@ -73,11 +72,10 @@ class Comment(models.Model):
                 validate_image_file(self.attachment)
 
         if self.text:
-            # Очищаем и валидируем HTML в тексте
             self.text = clean_html(self.text)
 
     def save(self, *args, **kwargs):
-        self.full_clean()  # Запускаем валидацию перед сохранением
+        self.full_clean()
 
         if self.attachment:
             ext = self.attachment.name.split('.')[-1].lower()
