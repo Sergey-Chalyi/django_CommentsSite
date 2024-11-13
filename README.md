@@ -43,15 +43,8 @@ Before running the project, ensure you have:
    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
    ```
 
-5. Add application to INSTALLED_APPS:
-   ```python
-   INSTALLED_APPS = [
-       ...
-       'comments.apps.CommentsConfig',
-   ]
-   ```
 
-6. Apply database migrations:
+5. Apply database migrations:
    ```bash
    python manage.py migrate
    ```

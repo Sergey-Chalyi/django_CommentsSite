@@ -1,0 +1,39 @@
+# Git
+.git
+.gitignore
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.Python
+*.py[cod]
+*$py.class
+
+# Django
+*.log
+db.sqlite3
+media/*
+!media/.gitkeep
+
+# Environment
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Docker
+Dockerfile
+docker-compose.yml
+
+# Other
+*.md
+LICENSE
