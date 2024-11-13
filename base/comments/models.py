@@ -45,14 +45,24 @@ class Comment(models.Model):
     user_name = models.CharField(max_length=255, null=False, blank=False)
     email = models.EmailField(validators=[EmailValidator()], null=False)
     text = models.TextField(null=False)  # Поле для хранения очищенного текста
+
     attachment = models.FileField(
         null=True,
         blank=True
     )
+
+    parent_comment = models.ForeignKey(
+        'self',
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name='replies'
+    )
+
     time_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Комментарий от {self.user_name} ({self.email})"
+        return f"{self.pk}_{self.user_name}_{self.email}"
 
     def clean(self):
         if self.attachment:

@@ -21,9 +21,13 @@
         </div>
     {% endif %}
 
-    {% for reply in comment.get_replies %}
-        <div class="comment-reply">
-            {% include "comment.html" with comment=reply level=level|default:0|add:20 %}
+    {% if comment.replies.all %}
+        <div class="replies">
+            {% for reply in comment.replies.all %}
+                <div class="comment-reply">
+                    {% include "comments/comment.html" with comment=reply level=level|default:0|add:20 %}
+                </div>
+            {% endfor %}
         </div>
-    {% endfor %}
+    {% endif %}
 </div>

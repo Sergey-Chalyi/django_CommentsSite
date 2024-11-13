@@ -185,3 +185,167 @@ nav ul li a.active {
     border-radius: 4px;
     border: 1px solid #ddd;
 }
+
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* Стили для формы */
+.add-comment-container {
+    margin-top: 20px;
+}
+
+.comment-form .form-group {
+    margin-bottom: 15px;
+}
+
+.comment-form label {
+    font-size: 14px;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.comment-form input, .comment-form textarea, .comment-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comment-form input:focus, .comment-form textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.comment-form textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Ссылки */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Контейнер для кнопок сортировки */
+.sort-buttons {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Группа кнопок для каждого поля сортировки */
+.sort-group {
+    display: inline-block;
+    margin: 0 15px;
+    padding: 10px;
+}
+
+/* Кнопки сортировки */
+.sort-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sort-btn:hover {
+    background-color: #2980b9;
+}
+
+.sort-btn:active {
+    background-color: #27ae60;
+}
+
+/* Стили для активных кнопок */
+.sort-group span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Стили для пагинации */
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #2980b9;
+}
+
+nav ul li a.active {
+    background-color: #2ecc71;
+}

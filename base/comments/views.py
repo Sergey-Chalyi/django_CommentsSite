@@ -9,8 +9,17 @@ from comments.models import Comment
 
 # Create your views here.
 def comments_view(request):
-    all_comments = Comment.objects.all().order_by('-time_created')
-    paginator = Paginator(all_comments, 10)
+    sort_by = request.GET.get('sort_by', 'time_created')  # По умолчанию сортировка по времени создания
+    order = request.GET.get('order', 'desc')  # По умолчанию сортировка по убыванию
+
+    if order == 'asc':
+        order_by = f"{sort_by}"
+    else:
+        order_by = f"-{sort_by}"
+
+    all_comments = Comment.objects.all().order_by(order_by)
+
+    paginator = Paginator(all_comments, 25)
 
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

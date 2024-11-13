@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Добавить комментарий</title>
@@ -8,17 +8,43 @@
 </head>
 <body>
 
-<h2>Добавить комментарий</h2>
+<div class="container">
+    <h2>Добавить комментарий</h2>
 
-<div class="add-comment-container">
-    <form method="post" action="{% url 'comments_create' %}" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Отправить</button>
-    </form>
+    <div class="add-comment-container">
+        <form method="post" action="{% url 'comments_create' %}" enctype="multipart/form-data" class="comment-form">
+            {% csrf_token %}
+
+            <div class="form-group">
+                {{ form.user_name.label_tag }}  <!-- Явное указание на метку -->
+                {{ form.user_name }}
+            </div>
+
+            <div class="form-group">
+                {{ form.email.label_tag }}
+                {{ form.email }}
+            </div>
+
+            <div class="form-group">
+                {{ form.text.label_tag }}
+                {{ form.text }}
+            </div>
+
+            <div class="form-group">
+                {{ form.attachment.label_tag }}
+                {{ form.attachment }}
+            </div>
+
+            <div class="form-group">
+                {{ form.captcha }} <!-- Добавляем капчу -->
+            </div>
+
+            <button type="submit" class="submit-btn">Отправить</button>
+        </form>
+    </div>
+
+    <a href="{% url 'comments' %}" class="back-link">Вернуться к комментариям</a>
 </div>
-
-<a href="{% url 'comments' %}">Вернуться к комментариям</a>
 
 </body>
 </html>
