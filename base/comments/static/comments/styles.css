@@ -48,3 +48,109 @@ h2 {
     border-left: 1px solid #ccc;
     padding-left: 15px;
 }
+
+.add-comment-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-comment-container h2 {
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.add-comment-container form p {
+    margin: 10px 0;
+}
+
+.add-comment-container button[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-comment-container button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Стили для кнопки добавления комментария */
+button.add-comment-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Основной цвет кнопки */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin: 10px 0; /* Отступ от других элементов */
+}
+
+button.add-comment-btn:hover {
+    background-color: #45a049; /* Цвет при наведении */
+}
+
+button.add-comment-btn:focus {
+    outline: none;
+    box-shadow: 0 0 4px #4CAF50; /* Обводка при фокусе */
+}
+
+.centered-link {
+    display: block;
+    text-align: center;
+}
+
+/* Стили для навигации по страницам */
+nav {
+    text-align: center;
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    gap: 10px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 8px 12px;
+    text-decoration: none;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+nav ul li a:active {
+    background-color: #0056b3;
+}
+
+/* Для активной страницы */
+nav ul li a.active {
+    background-color: #007BFF;
+    color: white;
+    pointer-events: none;
+}

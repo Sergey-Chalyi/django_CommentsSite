@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить комментарий</title>
+    <link rel="stylesheet" href="{% static 'comments/styles.css' %}">
+</head>
+<body>
+
+<h2>Добавить комментарий</h2>
+
+<div class="add-comment-container">
+    <form method="post" action="{% url 'comments_create' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
+</div>
+
+<a href="{% url 'comments' %}">Вернуться к комментариям</a>
+
+</body>
+</html>

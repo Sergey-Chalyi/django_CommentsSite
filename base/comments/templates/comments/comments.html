@@ -10,11 +10,26 @@
 
 <h2>Комментарии</h2>
 
-<div class="comments-container">
-    {% for comment in comments %}
-        {% include "./comment.html" with comment=comment %}
-    {% endfor %}
-</div>
+<a href="{% url 'comments_create' %}" class="centered-link">
+    <button type="button" class="add-comment-btn">Добавить комментарий</button>
+</a>
+
+{% for comment in page_obj %}
+    <div class="comments-container">
+        {% include "comments/comment.html" with comment=comment %}
+    </div>
+{% endfor %}
+
+<nav>
+    <ul>
+        {% for p in page_obj.paginator.page_range %}
+        <li>
+            <a href="?page={{ p }}" {% if page_obj.number == p %}class="active"{% endif %}>{{ p }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>
+
 
 </body>
 </html>
