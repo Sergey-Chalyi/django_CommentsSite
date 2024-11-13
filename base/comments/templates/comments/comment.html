@@ -1,0 +1,10 @@
+<div class="comment" style="margin-left: {{ level|default:0 }}px;">
+    <p><strong>{{ comment.user_name }}</strong> <span class="meta">— {{ comment.pk }} (ID) — {{ comment.time_created }}</span></p>
+    <p>{{ comment.text }}</p>
+
+    {% for reply in comment.get_replies %}
+        <div class="comment-reply">
+            {% include "comment.html" with comment=reply level=level|default:0|add:20 %}
+        </div>
+    {% endfor %}
+</div>

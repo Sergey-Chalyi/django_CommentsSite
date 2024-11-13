@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Комментарии</title>
+    <link rel="stylesheet" href="{% static 'comments/styles.css' %}">
+</head>
+<body>
+
+<h2>Комментарии</h2>
+
+<div class="comments-container">
+    {% for comment in comments %}
+        {% include "./comment.html" with comment=comment %}
+    {% endfor %}
+</div>
+
+</body>
+</html>
