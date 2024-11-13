@@ -22,8 +22,8 @@ Before running the project, ensure you have:
 ## Installation
 1. Clone the repository:
    ```bash
-   git clone [your-repository-url]
-   cd [repository-name]
+   git clone https://github.com/Sergey-Chalyi/django_CommentsSite.git
+   cd django_CommentsSite
    ```
 
 2. Create and activate a virtual environment:
