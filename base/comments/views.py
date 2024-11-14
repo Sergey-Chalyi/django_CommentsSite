@@ -2,7 +2,6 @@ from django.contrib.admin.templatetags.admin_list import pagination
 from django.core.paginator import Paginator
 from django.http import HttpRequest
 from django.shortcuts import render, redirect
-
 from comments.forms import AddCommentForm
 from comments.models import Comment
 

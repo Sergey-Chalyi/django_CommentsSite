@@ -1,11 +1,11 @@
+import os
+import bleach
+import re
 from PIL import Image
 from django.core.exceptions import ValidationError
 from django.core.validators import EmailValidator
 from django.db import models
-import os
-import bleach
 from lxml import etree
-import re
 
 
 def validate_text_file(value):
