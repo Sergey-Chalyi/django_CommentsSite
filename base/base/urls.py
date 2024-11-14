@@ -24,7 +24,7 @@ from comments import views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('comments/', views.comments_view, name='comments'),
+    path('', views.comments_view, name='comments'),
     path('comments-create/', views.comments_form, name='comments_create'),
 
 ]
