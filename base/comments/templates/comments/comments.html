@@ -35,10 +35,13 @@
         </div>
     </div>
 
+    <!-- Здесь выводим только родительские комментарии -->
     {% for comment in page_obj %}
-        <div class="comments-container">
-            {% include "comments/comment.html" with comment=comment level=0 %}
-        </div>
+        {% if not comment.parent_comment %}  <!-- Добавлено условие: только родительские комментарии -->
+            <div class="comments-container">
+                {% include "comments/comment.html" with comment=comment level=0 %}
+            </div>
+        {% endif %}
     {% endfor %}
 
     <nav>
@@ -50,7 +53,6 @@
             {% endfor %}
         </ul>
     </nav>
-
 
 </body>
 </html>
