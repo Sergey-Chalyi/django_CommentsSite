@@ -1,20 +1,28 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
+/* Общие стили */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
     padding: 20px;
 }
 
 h2 {
     text-align: center;
-    color: #333;
+    color: #2c3e50;
     font-size: 24px;
+    margin-bottom: 20px;
 }
 
-.comments-container {
+/* Контейнеры */
+.container, .comments-container, .add-comment-container {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 8px;
@@ -49,112 +57,60 @@ h2 {
     padding-left: 15px;
 }
 
-.add-comment-container {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.add-comment-container h2 {
-    font-size: 20px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.add-comment-container form p {
-    margin: 10px 0;
-}
-
-.add-comment-container button[type="submit"] {
+/* Кнопки и ссылки */
+button.add-comment-btn, .submit-btn, .sort-btn {
     background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.add-comment-container button[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-/* Стили для кнопки добавления комментария */
-button.add-comment-btn {
-    padding: 10px 20px;
-    background-color: #4CAF50; /* Основной цвет кнопки */
     color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
-    margin: 10px 0; /* Отступ от других элементов */
 }
 
-button.add-comment-btn:hover {
-    background-color: #45a049; /* Цвет при наведении */
+button.add-comment-btn:hover, .submit-btn:hover, .sort-btn:hover {
+    background-color: #45a049;
 }
 
-button.add-comment-btn:focus {
+button.add-comment-btn:focus, .submit-btn:focus {
     outline: none;
-    box-shadow: 0 0 4px #4CAF50; /* Обводка при фокусе */
+    box-shadow: 0 0 4px #4CAF50;
 }
 
-.centered-link {
+.centered-link, .back-link {
     display: block;
     text-align: center;
-}
-
-/* Стили для навигации по страницам */
-nav {
-    text-align: center;
-    margin-top: 20px;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
-    display: inline-flex;
-    gap: 10px;
+    text-align: center;
 }
 
 nav ul li {
     display: inline-block;
+    margin: 0 5px;
 }
 
 nav ul li a {
-    display: inline-block;
-    padding: 8px 12px;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
     text-decoration: none;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
     border-radius: 5px;
-    color: #333;
-    font-weight: bold;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav ul li a:hover {
-    background-color: #007BFF;
-    color: white;
+    background-color: #2980b9;
 }
 
-nav ul li a:active {
-    background-color: #0056b3;
-}
-
-/* Для активной страницы */
 nav ul li a.active {
-    background-color: #007BFF;
-    color: white;
-    pointer-events: none;
+    background-color: #2ecc71;
 }
 
+/* Стили для файлов */
 .attachment {
     margin-top: 10px;
 }
@@ -184,168 +140,4 @@ nav ul li a.active {
     height: auto;
     border-radius: 4px;
     border: 1px solid #ddd;
-}
-
-/* Общие стили */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-}
-
-.container {
-    width: 80%;
-    max-width: 800px;
-    margin: 40px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 20px;
-}
-
-/* Стили для формы */
-.add-comment-container {
-    margin-top: 20px;
-}
-
-.comment-form .form-group {
-    margin-bottom: 15px;
-}
-
-.comment-form label {
-    font-size: 14px;
-    color: #2c3e50;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.comment-form input, .comment-form textarea, .comment-form select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #333;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.comment-form input:focus, .comment-form textarea:focus {
-    border-color: #3498db;
-    outline: none;
-}
-
-.comment-form textarea {
-    height: 120px;
-    resize: vertical;
-}
-
-.submit-btn {
-    background-color: #3498db;
-    color: #fff;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    margin-top: 10px;
-}
-
-.submit-btn:hover {
-    background-color: #2980b9;
-}
-
-/* Ссылки */
-.back-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    color: #3498db;
-    text-decoration: none;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-/* Контейнер для кнопок сортировки */
-.sort-buttons {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* Группа кнопок для каждого поля сортировки */
-.sort-group {
-    display: inline-block;
-    margin: 0 15px;
-    padding: 10px;
-}
-
-/* Кнопки сортировки */
-.sort-btn {
-    display: inline-block;
-    padding: 10px 15px;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 14px;
-    margin: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.sort-btn:hover {
-    background-color: #2980b9;
-}
-
-.sort-btn:active {
-    background-color: #27ae60;
-}
-
-/* Стили для активных кнопок */
-.sort-group span {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
-}
-
-/* Стили для пагинации */
-nav ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 0 5px;
-}
-
-nav ul li a {
-    padding: 5px 10px;
-    background-color: #3498db;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-nav ul li a:hover {
-    background-color: #2980b9;
-}
-
-nav ul li a.active {
-    background-color: #2ecc71;
 }
