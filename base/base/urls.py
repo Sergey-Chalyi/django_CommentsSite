@@ -27,7 +27,7 @@ urlpatterns = [
     path('', views.comments_view, name='comments'),
     path('comments-create/', views.comments_form, name='comments_create'),
 
+
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
