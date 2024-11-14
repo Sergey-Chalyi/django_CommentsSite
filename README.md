@@ -46,6 +46,7 @@ Before running the project, ensure you have:
 
 5. Apply database migrations:
    ```bash
+   cd base
    python manage.py migrate
    ```
 
