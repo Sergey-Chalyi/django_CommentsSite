@@ -2,4 +2,6 @@
 .venv/
 .env
 base/db.sqlite3
-base/media/
+
+/base/media/*
+!/base/media/.gitkeep
