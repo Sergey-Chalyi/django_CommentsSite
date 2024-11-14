@@ -1,4 +1,4 @@
-/* Общие стили */
+/* General styles */
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +19,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Контейнеры */
+/* Containers */
 .container, .comments-container, .add-comment-container {
     max-width: 800px;
     margin: 20px auto;
@@ -57,7 +57,7 @@ h2 {
     padding-left: 15px;
 }
 
-/* Кнопки и ссылки */
+/* Buttons and links */
 button.add-comment-btn, .submit-btn, .sort-btn {
     background-color: #4CAF50;
     color: white;
@@ -110,7 +110,7 @@ nav ul li a.active {
     background-color: #2ecc71;
 }
 
-/* Стили для файлов */
+/* Styles for files */
 .attachment {
     margin-top: 10px;
 }

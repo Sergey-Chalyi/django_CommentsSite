@@ -2,10 +2,11 @@
     <p><strong>{{ comment.user_name }}</strong> <span class="meta">— {{ comment.pk }} (ID) — {{ comment.time_created }}</span></p>
     <p>{{ comment.text|safe }}</p>
 
+    <!-- show the attachment -->
     {% if comment.attachment %}
         <div class="attachment">
             {% if comment.attachment.name|lower|slice:"-4:" == '.txt' %}
-                <!-- Для текстового файла покажем ссылку для скачивания -->
+                <!-- show a download link for a text file-->
                 <p class="attachment-text">
                     Прикрепленный файл:
                     <a href="{{ comment.attachment.url }}" download>
@@ -13,7 +14,7 @@
                     </a>
                 </p>
             {% else %}
-                <!-- Для изображения покажем превью -->
+                <!-- show a preview for the image -->
                 <div class="attachment-image">
                     <img src="{{ comment.attachment.url }}" alt="Прикрепленное изображение">
                 </div>
@@ -21,10 +22,12 @@
         </div>
     {% endif %}
 
+    <!-- show the reply form -->
     {% if comment.replies.all %}
         <div class="replies">
             {% for reply in comment.replies.all %}
                 <div class="comment-reply">
+                    <!-- recursion -->
                     {% include "comments/comment.html" with comment=reply level=level|default:0|add:20 %}
                 </div>
             {% endfor %}

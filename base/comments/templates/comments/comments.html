@@ -10,11 +10,12 @@
 
     <h2>Комментарии</h2>
 
+    <!-- comment link -->
     <a href="{% url 'comments_create' %}" class="centered-link">
         <button type="button" class="add-comment-btn">Добавить комментарий</button>
     </a>
 
-    <!-- Кнопки сортировки -->
+    <!-- sorting buttons -->
     <div class="sort-buttons">
         <div class="sort-group">
             <span>Сортировать по имени пользователя:</span>
@@ -35,15 +36,16 @@
         </div>
     </div>
 
-    <!-- Здесь выводим только родительские комментарии -->
+    <!-- display only parent comments -->
     {% for comment in page_obj %}
-        {% if not comment.parent_comment %}  <!-- Добавлено условие: только родительские комментарии -->
+        {% if not comment.parent_comment %}  <!-- only parent comments -->
             <div class="comments-container">
                 {% include "comments/comment.html" with comment=comment level=0 %}
             </div>
         {% endif %}
     {% endfor %}
 
+    <!-- pagination -->
     <nav>
         <ul>
             {% for p in page_obj.paginator.page_range %}
