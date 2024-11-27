@@ -1,6 +1,8 @@
 # Django Comments System
 ___
 
+[Link](https://sergey-ch-comments.onrender.com/) to deployed project (on Render)  
+
 ## Project Description
 
 This project is a Django-based comments management system with file attachments and HTML formatting support. It provides a robust system for managing user comments with secure file handling, nested replies, and XSS protection.
